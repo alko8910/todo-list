@@ -1,0 +1,22 @@
+.todo-list {
+    background-color:#eff777;
+   height: 50px;
+   width: 250px;
+   color:#403e3e;
+   border-radius: 4px;
+   font-size: 20px;
+   font-weight: bolder;
+
+}
+
+.todo-list p {
+    padding: 13px;
+    position: relative;
+   
+}
+
+.todo-list p span {
+    position: absolute;
+    right: 10px;
+    cursor:pointer;
+}

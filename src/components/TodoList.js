@@ -1,27 +1,23 @@
-import React, {useState} from 'react';
-import TodoItem from './TodoItem';
+import React from 'react'
+import todolist from '../styling/todolist.css';
+ 
 
 
+function TodoList(props) {
 
-function TodoList() {
-    const [todos, setTodos] = useState([]);
-
-    const addTodo = todo => {
-        if(!todo.text || /^\s*$/.test(todo.text)) {
-            return ;
-        }
-
-        const newTodos = [todo, ...todos]
-
-        setTodos(newTodos)
-        console.log(todo, ...todos)
-    }
-
+    const items = props.items;
+    const listItems = items.map(item =>
+        {
+            return <div key={item.key} className='todo-list' >
+                <p onClick={ () => props.deleteItem(item.key)}>{item.text} 
+               
+                </p>
+                
+            </div>
+        })
     return (
-        <div>
-            <h1>Sta je plan za danas</h1>
-            <TodoItem onSubmit={addTodo}/>
-        </div>
+       <div>{listItems}</div>
+       
     )
 }
 
