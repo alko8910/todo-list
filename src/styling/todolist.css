@@ -1,7 +1,22 @@
+.main{
+    position:absolute;
+    top:50%;
+    left:50%;
+    margin-left:-100px;/* half width*/
+    margin-top:-300px;/* half height*/
+}
+.main-header {
+    position:absolute;
+    top:45%;
+    left:50%;
+    margin-left:-100px;/* half width*/
+    margin-top:-300px;/* half height*/
+}
+
 .todo-list {
     background-color:#eff777;
    height: 50px;
-   width: 250px;
+   width: 200px;
    color:#403e3e;
    border-radius: 4px;
    font-size: 20px;
@@ -20,3 +35,45 @@
     right: 10px;
     cursor:pointer;
 }
+
+
+    button {
+        box-shadow: 3px 4px 0px 0px #899599;
+        background:linear-gradient(to bottom, #ededed 5%, #bab1ba 100%);
+        background-color:#ededed;
+        border-radius:15px;
+        border:1px solid #d6bcd6;
+        display:inline-block;
+        cursor:pointer;
+        color:#3a8a9e;
+        font-family:Arial;
+        font-size:17px;
+        padding:7px 25px;
+        text-decoration:none;
+        text-shadow:0px 1px 0px #e1e2ed;
+    }
+    button:hover {
+        background:linear-gradient(to bottom, #bab1ba 5%, #ededed 100%);
+        background-color:#bab1ba;
+    }
+    button:active {
+        position:relative;
+        top:1px;
+    }
+    input {
+     padding: 7px;
+     font-size: 19px;
+     border-width: 2px;
+     border-color: #cccccc;
+     background-color: #FFFFFF;
+     color: #000000;
+     border-style: solid;
+     border-radius: 14px;
+     box-shadow: -10px -4px 5px rgba(66,66,66,.41);
+     text-shadow: 0px 0px 5px rgba(66,66,66,.75);
+     margin-right: 10px;
+}
+ input:focus {
+     outline:none;
+}
+            

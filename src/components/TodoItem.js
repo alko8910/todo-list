@@ -1,5 +1,7 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import TodoList from './TodoList';
+
+
 
 class TodoItem extends React.Component {
     constructor(props) {
@@ -11,11 +13,15 @@ class TodoItem extends React.Component {
                 key:''
             }
             
+            
         }
         this.handleInput = this.handleInput.bind(this);
         this.addItem = this.addItem.bind(this);
         this.deleteItem = this.deleteItem.bind(this);
+      
     }
+    
+   
 
     handleInput(e){
         this.setState({
@@ -26,10 +32,29 @@ class TodoItem extends React.Component {
         })
     }
 
+    loadFromStorage() {
+        const json = localStorage.getItem("items");
+
+        if (json) {
+            const itemsArray = JSON.parse(json);
+            this.setState({ items: itemsArray });
+        }
+    }
+
+    componentDidMount() {
+        this.loadFromStorage();
+
+    }
+
+    saveToStorage(items) {
+        const json = JSON.stringify(items);
+        localStorage.setItem("items", json);
+    }
+
     addItem(e){
         e.preventDefault();
         const newItem = this.state.currentItem;
-        console.log(newItem)
+        
         if(newItem.text !==''){
             const newItems = [...this.state.items, newItem];
             this.setState({
@@ -38,29 +63,30 @@ class TodoItem extends React.Component {
                     text: '',
                     key:''
                 }
+               
             })
+            this.saveToStorage(newItems);
         }else {
             alert('Enter task')
             
         }
+        console.log(newItem);
+       
     }
     deleteItem (key) {
         const filteredItems = this.state.items.filter (item => item.key !== key);
         this.setState({
             items : filteredItems
         })
+        this.saveToStorage(filteredItems);
     }
 
-    
-
-
-
-
+ 
 
 
     render() {
         return ( 
-            <div>
+            <div className='main'>
             < header >
             <form onSubmit={this.addItem}>
             <
